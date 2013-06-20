@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlldeliWebSite", "AlldeliWebSite\AlldeliWebSite.csproj", "{410C7676-D004-43ED-99CC-E2FE7CF8E25D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicaNegocios", "LogicaNegocios\LogicaNegocios.csproj", "{81E4251C-5956-4204-8E18-0EBEAF33CA89}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlldeliWebAdmin", "AlldeliWebAdmin\AlldeliWebAdmin.csproj", "{36AA7E51-8CA2-4FAD-A962-B574BD357283}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +17,14 @@ Global
 		{410C7676-D004-43ED-99CC-E2FE7CF8E25D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{410C7676-D004-43ED-99CC-E2FE7CF8E25D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{410C7676-D004-43ED-99CC-E2FE7CF8E25D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81E4251C-5956-4204-8E18-0EBEAF33CA89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81E4251C-5956-4204-8E18-0EBEAF33CA89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81E4251C-5956-4204-8E18-0EBEAF33CA89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81E4251C-5956-4204-8E18-0EBEAF33CA89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36AA7E51-8CA2-4FAD-A962-B574BD357283}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36AA7E51-8CA2-4FAD-A962-B574BD357283}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36AA7E51-8CA2-4FAD-A962-B574BD357283}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36AA7E51-8CA2-4FAD-A962-B574BD357283}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
