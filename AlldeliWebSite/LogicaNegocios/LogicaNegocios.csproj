@@ -44,11 +44,42 @@
   <ItemGroup>
     <Compile Include="DbLayer\AccesSqlBase.cs" />
     <Compile Include="DbLayer\FunctionsSql.cs" />
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\City.cs" />
+    <Compile Include="Models\Contact.cs" />
+    <Compile Include="Models\Country.cs" />
+    <Compile Include="Models\DeliveryAddress.cs" />
+    <Compile Include="Models\ItemsMenu.cs" />
+    <Compile Include="Models\Menu.cs" />
+    <Compile Include="Models\ModelsEntidades.cs" />
+    <Compile Include="Models\ModelsEntidades.designer.cs">
+      <DependentUpon>ModelsEntidades.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OpeningHour.cs" />
+    <Compile Include="Models\OptionalType.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\OrderDetail.cs" />
+    <Compile Include="Models\OrderDetailsItemMenu.cs" />
+    <Compile Include="Models\OrderDetailsValue.cs" />
+    <Compile Include="Models\OrderProfile.cs" />
+    <Compile Include="Models\OrderStatu.cs" />
+    <Compile Include="Models\Partner.cs" />
+    <Compile Include="Models\PartnersSeller.cs" />
+    <Compile Include="Models\Payment.cs" />
+    <Compile Include="Models\Phone.cs" />
+    <Compile Include="Models\PhoneType.cs" />
+    <Compile Include="Models\ProfileUser.cs" />
+    <Compile Include="Models\Restaurant.cs" />
+    <Compile Include="Models\Role.cs" />
+    <Compile Include="Models\Seller.cs" />
+    <Compile Include="Models\ShippingCost.cs" />
+    <Compile Include="Models\State.cs" />
+    <Compile Include="Models\sysdiagram.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\ValuesItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
