@@ -7,7 +7,7 @@
     <ProjectGuid>{81E4251C-5956-4204-8E18-0EBEAF33CA89}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Alldeli.LogicLayer</RootNamespace>
+    <RootNamespace>Alldeli.BusinessLogic</RootNamespace>
     <AssemblyName>LogicaNegocios</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
