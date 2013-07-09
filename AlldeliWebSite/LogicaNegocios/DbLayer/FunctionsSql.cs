@@ -5,7 +5,7 @@ using System.Text;
 using System.Configuration;
 using System.Data.SqlClient;
 
-namespace Alldeli.LogicLayer.DbLayer
+namespace Alldeli.BusinessLogic.DbLayer
 {
     public class FunctionsSql
     {

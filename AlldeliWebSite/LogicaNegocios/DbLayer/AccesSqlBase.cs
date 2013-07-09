@@ -7,9 +7,9 @@ using System.Data.SqlClient;
 using System.Data;
 using System.ComponentModel;
 
-namespace Alldeli.LogicLayer.DbLayer
+namespace Alldeli.BusinessLogic.DbLayer
 {
-    class AccesSqlBase : IDisposable
+   public abstract class AccesSqlBase : IDisposable
     {
         private bool _disposed;
         private SqlConnection _cn;
@@ -164,7 +164,7 @@ namespace Alldeli.LogicLayer.DbLayer
 
 
 
-        public T ExecuteScalar<T>(string storeProceduer, SqlParameter[] parametros = null)
+        public T ExecuteScalar<T>(string storeProceduer, SqlParameter[] parametros = null, SqlParameter parametro = null)
         {
             T resultado;
             using (SqlCommand cmd = new SqlCommand(storeProceduer, this.Conexion))
@@ -173,6 +173,10 @@ namespace Alldeli.LogicLayer.DbLayer
 
                 if (parametros != null)
                     cmd.Parameters.AddRange(parametros);
+
+                if (parametro != null)
+                    cmd.Parameters.Add(parametro);
+
 
                 var objR = cmd.ExecuteScalar();
 
@@ -186,11 +190,17 @@ namespace Alldeli.LogicLayer.DbLayer
 
 
 
-        public int executeNonQuery(string storeProcedure)
+        public int executeNonQuery(string storeProcedure, SqlParameter[] parametros = null, SqlParameter parametro=null)
         {
             int resultado = 0;
             using (SqlCommand cmd = new SqlCommand(storeProcedure, this.Conexion))
             {
+                if (parametros != null)
+                    cmd.Parameters.AddRange(parametros);
+
+                if (parametro != null)
+                    cmd.Parameters.Add(parametro);
+
                 cmd.CommandType = CommandType.StoredProcedure;
                 resultado = cmd.ExecuteNonQuery();
             }

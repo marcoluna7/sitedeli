@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DbLayer\AccesDb.cs" />
     <Compile Include="DbLayer\AccesSqlBase.cs" />
     <Compile Include="DbLayer\FunctionsSql.cs" />
     <Compile Include="Models\Category.cs" />
