@@ -51,10 +51,6 @@
     <Compile Include="Models\DeliveryAddress.cs" />
     <Compile Include="Models\ItemsMenu.cs" />
     <Compile Include="Models\Menu.cs" />
-    <Compile Include="Models\ModelsEntidades.cs" />
-    <Compile Include="Models\ModelsEntidades.designer.cs">
-      <DependentUpon>ModelsEntidades.cs</DependentUpon>
-    </Compile>
     <Compile Include="Models\OpeningHour.cs" />
     <Compile Include="Models\OptionalType.cs" />
     <Compile Include="Models\Order.cs" />
