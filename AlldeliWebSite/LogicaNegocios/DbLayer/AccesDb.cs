@@ -13,7 +13,7 @@ namespace Alldeli.BusinessLogic.DbLayer
         //Empiezan metodos para ValuesItem
 
         public ValuesItem GetValuesItemById(int id)
-        {
+        { 
             return this.GetSingleBase<ValuesItem>("GetValuesItem",
                 parametro: getParam("@Id",System.Data.SqlDbType.Int,id));
         }
