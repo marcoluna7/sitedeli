@@ -873,12 +873,12 @@ namespace Alldeli.BusinessLogic.DbLayer
 
         //CODIGO DE GUS
         //CODIGO DE FER
-        public OrderDetailsItemMenu GetOrderDetailsItemMenu(int Id)
-        {
-            return this.GetSingleBase<OrderDetailsItemMenu>("GetOrderDetailsItemMenu",
-                parametro: getParam("@OrderDetailId", System.Data.SqlDbType.Int, Id));
-            //Y es todo
-        }
+        //public OrderDetailsItemMenu GetOrderDetailsItemMenu(int Id)
+        //{
+        //    return this.GetSingleBase<OrderDetailsItemMenu>("GetOrderDetailsItemMenu",
+        //        parametro: getParam("@OrderDetailId", System.Data.SqlDbType.Int, Id));
+        //    //Y es todo
+        //}
 
         public List<OrderDetailsItemMenu> GetorderDetailsItemMenu(int OrderDetailId, int ItemMenuId)
         {
@@ -896,30 +896,30 @@ namespace Alldeli.BusinessLogic.DbLayer
             return this.GetListBase<OrderDetailsItemMenu>("GetOrderDetailsItemMenu", parametro: parametro);
         }
 
-        public void InsertOrderDetailsItemMenu(OrderDetailsItemMenu objOrderDetailsItemMenu)
-        {
-            string[] nombres = { "@OrderDetailId", "@ItemMenuId", "@Price" };
-            SqlDbType[] tipos = { SqlDbType.Int, SqlDbType.Int, SqlDbType.SmallDateTime };
-            object[] valores = { objOrderDetailsItemMenu.OrderDetailId, objOrderDetailsItemMenu.ItemMenuId, objOrderDetailsItemMenu.Price };
+        //public void InsertOrderDetailsItemMenu(OrderDetailsItemMenu objOrderDetailsItemMenu)
+        //{
+        //    string[] nombres = { "@OrderDetailId", "@ItemMenuId", "@Price" };
+        //    SqlDbType[] tipos = { SqlDbType.Int, SqlDbType.Int, SqlDbType.SmallDateTime };
+        //    object[] valores = { objOrderDetailsItemMenu.OrderDetailId, objOrderDetailsItemMenu.ItemMenuId, objOrderDetailsItemMenu.Price };
 
-            SqlParameter parametro = null;
-            if (objOrderDetailsItemMenu.Id > 0)
-            {
-                parametro = new SqlParameter("@id", SqlDbType.Int);
-                parametro.Value = objOrderDetailsItemMenu.Id;
-            }
-
-
-            objOrderDetailsItemMenu.Id = this.ExecuteScalar<int>("InsertOrderDetailsItemMenu", parametros: getParams(nombres, tipos, valores), parametro: parametro);
+        //    SqlParameter parametro = null;
+        //    if (objOrderDetailsItemMenu.Id > 0)
+        //    {
+        //        parametro = new SqlParameter("@id", SqlDbType.Int);
+        //        parametro.Value = objOrderDetailsItemMenu.Id;
+        //    }
 
 
-        }
+        //    objOrderDetailsItemMenu.Id = this.ExecuteScalar<int>("InsertOrderDetailsItemMenu", parametros: getParams(nombres, tipos, valores), parametro: parametro);
 
 
-        public void DeleteOrderDetailsItemMenu(int id)
-        {
-            this.executeNonQuery("DeleteOrderDetailsItemMenu", parametro: getParam("@id", SqlDbType.Int, id));
-        }
+        //}
+
+
+        //public void DeleteOrderDetailsItemMenu(int id)
+        //{
+        //    this.executeNonQuery("DeleteOrderDetailsItemMenu", parametro: getParam("@id", SqlDbType.Int, id));
+        //}
 
 
 
@@ -1148,14 +1148,14 @@ namespace Alldeli.BusinessLogic.DbLayer
 
 
         //Mi Sexto metodo
-        public Partner Partner(int Id)
+        public Partner GetPartnerById(int Id)
         {
             return this.GetSingleBase<Partner>("GetPartner",
                 parametro: getParam("@Id", System.Data.SqlDbType.Int, Id));
             //Y es todo
         }
 
-        public List<Partner> parther(int ContactId)
+        public List<Partner> GetPartners(int ContactId)
         {
             SqlParameter parametro = null;
             if (ContactId > 0)
@@ -1164,8 +1164,7 @@ namespace Alldeli.BusinessLogic.DbLayer
                 parametro.Value = ContactId;
             }
 
-
-            return this.GetListBase<Partner>("GetPartner", parametro: parametro);
+            return this.GetListBase<Partner>("GetPartners", parametro: parametro);
         }
 
         public void InsertPartners(Partner objPartner)

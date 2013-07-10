@@ -1,0 +1,101 @@
+﻿@model IEnumerable<Alldeli.BusinessLogic.Models.Partner>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="h_title"></div>
+<h2>Partners</h2>
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            ContactId
+        </th>
+        <th>
+            name
+        </th>
+        <th>
+            TaxId
+        </th>
+        <th>
+            Enabled
+        </th>
+        <th>
+            Logo
+        </th>
+        <th>
+            Description
+        </th>
+        <th>
+            ShippingCost
+        </th>
+        <th>
+            MinimumOrderAmount
+        </th>
+        <th>
+            CreatedDate
+        </th>
+        <th>
+            UpdatedDate
+        </th>
+        <th>
+            CreatedUser
+        </th>
+        <th>
+            UpdatedUser
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContactId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TaxId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Enabled)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Logo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShippingCost)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MinimumOrderAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdatedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedUser)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdatedUser)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
