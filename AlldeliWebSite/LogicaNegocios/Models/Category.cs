@@ -31,5 +31,17 @@ namespace Alldeli.BusinessLogic.Models
     
         public virtual Partner Partner { get; set; }
         public virtual ICollection<Menu> Menus { get; set; }
+
+        public static List<Category> GetCategories(int partnerId, int parentId)
+        {
+            List<Category> listaCategorias = null;
+            using (DbLayer.AccessDataBase acceso = new DbLayer.AccessDataBase())
+            {
+                listaCategorias = acceso.GetCategories(parentId, partnerId);
+            }
+            return listaCategorias;
+        }
+
+
     }
 }
