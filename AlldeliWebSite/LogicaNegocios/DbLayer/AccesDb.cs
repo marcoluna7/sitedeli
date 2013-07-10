@@ -398,18 +398,20 @@ namespace Alldeli.BusinessLogic.DbLayer
 
         public List<Category> GetCategories(int parentId, int partnerId)
         {
-            SqlParameter parametro = null;
+            List<SqlParameter> lista = new List<SqlParameter>();
             if (parentId > 0)
             {
-                parametro = new SqlParameter("@parentId", SqlDbType.Int);
+                SqlParameter parametro = new SqlParameter("@parentId", SqlDbType.Int);
                 parametro.Value = parentId;
+                lista.Add(parametro);
             }
-            else
+            if(partnerId >0)
             {
-                parametro = new SqlParameter("@partnerId", SqlDbType.Int);
+                SqlParameter parametro = new SqlParameter("@partnerId", SqlDbType.Int);
                 parametro.Value = partnerId;
+                lista.Add(parametro);
             }
-            return this.GetListBase<Category>("GetCategories", parametro:parametro);
+            return this.GetListBase<Category>("GetCategories", listaParametros:lista.ToArray());
         }
 
         public void InsertCategory(Category objCategory)

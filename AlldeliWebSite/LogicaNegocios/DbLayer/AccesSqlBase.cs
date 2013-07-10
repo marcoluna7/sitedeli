@@ -144,7 +144,8 @@ namespace Alldeli.BusinessLogic.DbLayer
                 cmd.CommandType = CommandType.StoredProcedure;
                 if (listaParametros != null)
                 {
-                    cmd.Parameters.AddRange(listaParametros);
+                    if(listaParametros.Count() > 0)
+                        cmd.Parameters.AddRange(listaParametros);
                 }
                 if (parametro != null)
                 {
