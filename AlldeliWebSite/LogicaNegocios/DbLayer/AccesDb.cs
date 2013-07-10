@@ -872,6 +872,548 @@ namespace Alldeli.BusinessLogic.DbLayer
         }
 
         //CODIGO DE GUS
+        //CODIGO DE FER
+        public OrderDetailsItemMenu GetOrderDetailsItemMenu(int Id)
+        {
+            return this.GetSingleBase<OrderDetailsItemMenu>("GetOrderDetailsItemMenu",
+                parametro: getParam("@OrderDetailId", System.Data.SqlDbType.Int, Id));
+            //Y es todo
+        }
+
+        public List<OrderDetailsItemMenu> GetorderDetailsItemMenu(int OrderDetailId, int ItemMenuId)
+        {
+            SqlParameter parametro = null;
+            if (OrderDetailId > 0)
+            {
+                parametro = new SqlParameter("@OrderDetailId", SqlDbType.Int);
+                parametro.Value = OrderDetailId;
+            }
+            else
+            {
+                parametro = new SqlParameter("@ItemMenuId", SqlDbType.Int);
+                parametro.Value = ItemMenuId;
+            }
+            return this.GetListBase<OrderDetailsItemMenu>("GetOrderDetailsItemMenu", parametro: parametro);
+        }
+
+        public void InsertOrderDetailsItemMenu(OrderDetailsItemMenu objOrderDetailsItemMenu)
+        {
+            string[] nombres = { "@OrderDetailId", "@ItemMenuId", "@Price" };
+            SqlDbType[] tipos = { SqlDbType.Int, SqlDbType.Int, SqlDbType.SmallDateTime };
+            object[] valores = { objOrderDetailsItemMenu.OrderDetailId, objOrderDetailsItemMenu.ItemMenuId, objOrderDetailsItemMenu.Price };
+
+            SqlParameter parametro = null;
+            if (objOrderDetailsItemMenu.Id > 0)
+            {
+                parametro = new SqlParameter("@id", SqlDbType.Int);
+                parametro.Value = objOrderDetailsItemMenu.Id;
+            }
+
+
+            objOrderDetailsItemMenu.Id = this.ExecuteScalar<int>("InsertOrderDetailsItemMenu", parametros: getParams(nombres, tipos, valores), parametro: parametro);
+
+
+        }
+
+
+        public void DeleteOrderDetailsItemMenu(int id)
+        {
+            this.executeNonQuery("DeleteOrderDetailsItemMenu", parametro: getParam("@id", SqlDbType.Int, id));
+        }
+
+
+
+
+
+        //Mi Segundo metodo
+        public OrderDetailsValue GetOrderDetailsValues(int Id)
+        {
+            return this.GetSingleBase<OrderDetailsValue>("GetOrderDetailsValues",
+                parametro: getParam("@Id", System.Data.SqlDbType.Int, Id));
+            //Y es todo
+        }
+
+        public List<OrderDetailsValue> getOrderDetailsValues(int OrderDetailItemMenuId, int ValueItemId)
+        {
+            SqlParameter parametro = null;
+            if (OrderDetailItemMenuId > 0)
+            {
+                parametro = new SqlParameter("@OrderDetailItemMenuId", SqlDbType.Int);
+                parametro.Value = OrderDetailItemMenuId;
+            }
+            else
+            {
+                parametro = new SqlParameter("@ValueItemId", SqlDbType.Int);
+                parametro.Value = ValueItemId;
+            }
+            return this.GetListBase<OrderDetailsValue>("GetOrderDetailsValues", parametro: parametro);
+        }
+
+        public void InsertOrderDetailsValues(OrderDetailsValue objOrderDetailsValues)
+        {
+            string[] nombres = { "@OrderDetailItemMenuId", "@ValueItemId" };
+            SqlDbType[] tipos = { SqlDbType.Int, SqlDbType.Int };
+            object[] valores = { objOrderDetailsValues.OrderDetailItemMenuId, objOrderDetailsValues.ValueItemId };
+
+            SqlParameter parametro = null;
+            if (objOrderDetailsValues.Id > 0)
+            {
+                parametro = new SqlParameter("@id", SqlDbType.Int);
+                parametro.Value = objOrderDetailsValues.Id;
+            }
+
+
+            objOrderDetailsValues.Id = this.ExecuteScalar<int>("InsertOrderDetailsValues", parametros: getParams(nombres, tipos, valores), parametro: parametro);
+
+
+        }
+
+
+        public void DeleteOrderDetailsValues(int id)
+        {
+            this.executeNonQuery("DeleteOrderDetailsValues", parametro: getParam("@id", SqlDbType.Int, id));
+        }
+
+
+
+
+
+
+
+        //Mi Tercer metodo
+        public OrderProfile OrderProfile(int Id)
+        {
+            return this.GetSingleBase<OrderProfile>("GetOrderProfile",
+                parametro: getParam("@Id", System.Data.SqlDbType.Int, Id));
+            //Y es todo
+        }
+
+        public List<OrderProfile> getOrderProfile(int OrderId, int CityId)
+        {
+            SqlParameter parametro = null;
+            if (OrderId > 0)
+            {
+                parametro = new SqlParameter("@OrderId", SqlDbType.Int);
+                parametro.Value = OrderId;
+            }
+            else
+            {
+                parametro = new SqlParameter("@CityId", SqlDbType.Int);
+                parametro.Value = CityId;
+            }
+            return this.GetListBase<OrderProfile>("GetOrderProfile", parametro: parametro);
+        }
+
+        public void InsertOrderProfile(OrderProfile objOrderProfile)
+        {
+            string[] nombres = { "@OrderId", "@CityId", "@ZipCode", "@Name", "@FirstnName", "@SecondName", "@IsHomeDelivery", "@HomePhone", "@CellPhone" };
+            SqlDbType[] tipos = { SqlDbType.Int, SqlDbType.Int, SqlDbType.VarChar, SqlDbType.VarChar, SqlDbType.VarChar, SqlDbType.VarChar, SqlDbType.Bit, SqlDbType.VarChar, SqlDbType.VarChar };
+            object[] valores = { objOrderProfile.OrderId, objOrderProfile.CityId, objOrderProfile.ZipCode, objOrderProfile.Name, objOrderProfile.FirstnName, objOrderProfile.SecondName, objOrderProfile.IsHomeDelivery, objOrderProfile.HomePhone, objOrderProfile.CellPhone };
+
+            SqlParameter parametro = null;
+            if (objOrderProfile.Id > 0)
+            {
+                parametro = new SqlParameter("@id", SqlDbType.Int);
+                parametro.Value = objOrderProfile.Id;
+            }
+
+
+            objOrderProfile.Id = this.ExecuteScalar<int>("InsertOrderProfile", parametros: getParams(nombres, tipos, valores), parametro: parametro);
+
+
+        }
+
+
+        public void DeleteOrderProfile(int id)
+        {
+            this.executeNonQuery("DeleteOrderProfile", parametro: getParam("@id", SqlDbType.Int, id));
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+        //Mi Cuarto metodo
+        public Order Order(int Id)
+        {
+            return this.GetSingleBase<Order>("GetOr",
+                parametro: getParam("@Id", System.Data.SqlDbType.Int, Id));
+            //Y es todo
+        }
+
+        public List<Order> getOrder(int UserId, int StatusId)
+        {
+            SqlParameter parametro = null;
+            if (UserId > 0)
+            {
+                parametro = new SqlParameter("@OrderId", SqlDbType.Int);
+                parametro.Value = UserId;
+            }
+            else
+            {
+                parametro = new SqlParameter("@CityId", SqlDbType.Int);
+                parametro.Value = StatusId;
+            }
+            return this.GetListBase<Order>("GetOrder", parametro: parametro);
+        }
+
+        public void InsertOrders(Order objOrder)
+        {
+            string[] nombres = { "@UserId", "@StatusId", "@Date", "@DeliveryTime", "@DeliveryDate" };
+            SqlDbType[] tipos = { SqlDbType.Int, SqlDbType.TinyInt, SqlDbType.SmallDateTime, SqlDbType.VarChar, SqlDbType.SmallDateTime };
+            object[] valores = { objOrder.UserId, objOrder.StatusId, objOrder.Date, objOrder.DeliveryTime, objOrder.DeliveryDate };
+
+            SqlParameter parametro = null;
+            if (objOrder.Id > 0)
+            {
+                parametro = new SqlParameter("@id", SqlDbType.Int);
+                parametro.Value = objOrder.Id;
+            }
+
+
+            objOrder.Id = this.ExecuteScalar<int>("InsertOrders", parametros: getParams(nombres, tipos, valores), parametro: parametro);
+
+
+        }
+
+
+        public void DeleteOrders(int id)
+        {
+            this.executeNonQuery("DeleteOrders", parametro: getParam("@id", SqlDbType.Int, id));
+        }
+
+
+
+
+
+
+
+        //Mi Quinto metodo
+        public OrderStatu GetOrderStatu(byte id)
+        {
+            return this.GetSingleBase<OrderStatu>("GetOrderStatu",
+                parametro: getParam("@id", System.Data.SqlDbType.Int, id));
+            //Y es todo
+        }
+
+        public List<OrderStatu> getOrderStatu(int Id)
+        {
+            SqlParameter parametro = null;
+            if (Id > 0)
+            {
+                parametro = new SqlParameter("@parentId", SqlDbType.Int);
+                parametro.Value = Id;
+            }
+            else
+            {
+                parametro = new SqlParameter("@Id", SqlDbType.Int);
+                parametro.Value = Id;
+            }
+
+            return this.GetListBase<OrderStatu>("GetOrderStatu", parametro: parametro);
+        }
+
+        public void InsertOrderStatus(OrderStatu objOrderStatu)
+        {
+            string[] nombres = { "@Status" };
+            SqlDbType[] tipos = { SqlDbType.VarChar };
+            object[] valores = { objOrderStatu.Status };
+
+            SqlParameter parametro = null;
+            if (objOrderStatu.Id > 0)
+            {
+                parametro = new SqlParameter("@id", SqlDbType.Int);
+                parametro.Value = objOrderStatu.Id;
+            }
+
+
+            objOrderStatu.Id = this.ExecuteScalar<byte>("InsertOrderstatus", parametros: getParams(nombres, tipos, valores), parametro: parametro);
+
+        }
+        public void DeleteOrderStatus(int id)
+        {
+            this.executeNonQuery("DeleteOrderStatus", parametro: getParam("@id", SqlDbType.Int, id));
+        }
+
+
+
+
+
+
+        //Mi Sexto metodo
+        public Partner Partner(int Id)
+        {
+            return this.GetSingleBase<Partner>("GetPartner",
+                parametro: getParam("@Id", System.Data.SqlDbType.Int, Id));
+            //Y es todo
+        }
+
+        public List<Partner> parther(int ContactId)
+        {
+            SqlParameter parametro = null;
+            if (ContactId > 0)
+            {
+                parametro = new SqlParameter("@ContactId", SqlDbType.Int);
+                parametro.Value = ContactId;
+            }
+
+
+            return this.GetListBase<Partner>("GetPartner", parametro: parametro);
+        }
+
+        public void InsertPartners(Partner objPartner)
+        {
+            string[] nombres = { "@ContactId", "@name", "@TaxId", "@Enabled", "@Logo", "@Description", "@ShippingCost", "@MinimumOrderAmount", "@CreatedDate", "UpdatedDate", @"CreatedUser", @"UpdatedUser" };
+            SqlDbType[] tipos = { SqlDbType.Int, SqlDbType.VarChar, SqlDbType.VarChar, SqlDbType.Bit, SqlDbType.VarChar, SqlDbType.Text, SqlDbType.SmallMoney, SqlDbType.SmallMoney, SqlDbType.SmallDateTime, SqlDbType.SmallDateTime, SqlDbType.VarChar, SqlDbType.VarChar };
+            object[] valores = { objPartner.ContactId, objPartner.name, objPartner.TaxId, objPartner.Enabled, objPartner.Logo, objPartner.Description, objPartner.ShippingCost, objPartner.MinimumOrderAmount, objPartner.CreatedDate, objPartner.UpdatedDate, objPartner.CreatedUser, objPartner.UpdatedUser };
+
+            SqlParameter parametro = null;
+            if (objPartner.Id > 0)
+            {
+                parametro = new SqlParameter("@id", SqlDbType.Int);
+                parametro.Value = objPartner.Id;
+            }
+
+
+            objPartner.Id = this.ExecuteScalar<int>("InsertPartners", parametros: getParams(nombres, tipos, valores), parametro: parametro);
+
+
+        }
+
+
+        public void DeletePartners(int id)
+        {
+            this.executeNonQuery("DeletePartners", parametro: getParam("@id", SqlDbType.Int, id));
+        }
+
+
+
+
+
+
+        //Mi Septimo metodo
+        public PartnersSeller PartneSeller(int Id)
+        {
+            return this.GetSingleBase<PartnersSeller>("GetPartner",
+                parametro: getParam("@Id", System.Data.SqlDbType.Int, Id));
+            //Y es todo
+        }
+
+        public List<PartnersSeller> partherSeller(int SellerId, int PartnerId)
+        {
+            SqlParameter parametro = null;
+            if (SellerId > 0)
+            {
+                parametro = new SqlParameter("@SellerId", SqlDbType.Int);
+                parametro.Value = SellerId;
+            }
+
+            else
+            {
+                parametro = new SqlParameter("@PartnerId", SqlDbType.Int);
+                parametro.Value = PartnerId;
+            }
+            return this.GetListBase<PartnersSeller>("GetPartneSeller", parametro: parametro);
+        }
+
+        public void InsertPartnerSellers(PartnersSeller objPartnerSellers)
+        {
+            string[] nombres = { "@SellerId", "@PartnerId", "@CreatedDate " };
+            SqlDbType[] tipos = { SqlDbType.Int, SqlDbType.Int, SqlDbType.SmallDateTime };
+            object[] valores = { objPartnerSellers.SellerId, objPartnerSellers.PartnerId, objPartnerSellers.CreatedDate };
+
+            SqlParameter parametro = null;
+            if (objPartnerSellers.SellerId > 0)
+            {
+                parametro = new SqlParameter("@id", SqlDbType.Int);
+                parametro.Value = objPartnerSellers;
+            }
+
+
+            objPartnerSellers.SellerId = this.ExecuteScalar<int>("InsertPartnerSeller", parametros: getParams(nombres, tipos, valores), parametro: parametro);
+
+
+        }
+
+
+        public void DeletePartnersSellers(int id)
+        {
+            this.executeNonQuery("DeletePartner", parametro: getParam("@id", SqlDbType.Int, id));
+        }
+
+
+
+
+
+
+
+
+
+
+
+        //Mi Octavo metodo
+        public Payment Payments(int Id)
+        {
+            return this.GetSingleBase<Payment>("GetPayments",
+                parametro: getParam("@Id", System.Data.SqlDbType.Int, Id));
+            //Y es todo
+        }
+
+        public List<Payment> payment(int OrderId, int CardTypeId)
+        {
+            SqlParameter parametro = null;
+            if (OrderId > 0)
+            {
+                parametro = new SqlParameter("@OrderId", SqlDbType.Int);
+                parametro.Value = OrderId;
+            }
+
+            else
+            {
+                parametro = new SqlParameter("@CardTypeId", SqlDbType.Int);
+                parametro.Value = CardTypeId;
+            }
+            return this.GetListBase<Payment>("GetPayments", parametro: parametro);
+        }
+
+        public void InsertPayments(Payment objPayment)
+        {
+            string[] nombres = { "@OrderId", "@Amount", "@CardNumbre ", @"SecurtyNumber", @"CardTypeId", @"ProviderToken", @"StatusId", @"FullNameTitular", @"ExpirationDate" };
+            SqlDbType[] tipos = { SqlDbType.Int, SqlDbType.SmallMoney, SqlDbType.VarChar, SqlDbType.VarChar, SqlDbType.TinyInt, SqlDbType.VarChar, SqlDbType.TinyInt, SqlDbType.VarChar, SqlDbType.SmallDateTime };
+            object[] valores = { objPayment.OrderId, objPayment.Amount, objPayment.CardNumbre, objPayment.SecurtyNumber, objPayment.CardTypeId, objPayment.ProviderToken, objPayment.StatusId, objPayment.FullNameTitular, objPayment.ExpirationDate };
+
+            SqlParameter parametro = null;
+            if (objPayment.OrderId > 0)
+            {
+                parametro = new SqlParameter("@id", SqlDbType.Int);
+                parametro.Value = objPayment;
+            }
+
+
+            objPayment.OrderId = this.ExecuteScalar<int>("InsertPayments", parametros: getParams(nombres, tipos, valores), parametro: parametro);
+
+
+        }
+
+
+        public void DeletePayments(int id)
+        {
+            this.executeNonQuery("DeletePayments", parametro: getParam("@id", SqlDbType.Int, id));
+        }
+
+
+
+
+
+
+
+
+
+
+        //Mi Noveno metodo
+        public Phone Phones(int Id)
+        {
+            return this.GetSingleBase<Phone>("GetPhones",
+                parametro: getParam("@Id", System.Data.SqlDbType.Int, Id));
+            //Y es todo
+        }
+
+        public List<Phone> phones(int TypeId)
+        {
+            SqlParameter parametro = null;
+            if (TypeId > 0)
+            {
+                parametro = new SqlParameter("@TypeId ", SqlDbType.Int);
+                parametro.Value = TypeId;
+            }
+
+
+            return this.GetListBase<Phone>("GetPhones", parametro: parametro);
+        }
+
+        public void InsertPhones(Phone objPhone)
+        {
+            string[] nombres = { "@Area", "@Number", "@TypeId" };
+            SqlDbType[] tipos = { SqlDbType.VarChar, SqlDbType.VarChar, SqlDbType.Int };
+            object[] valores = { objPhone.Area, objPhone.Number, objPhone.TypeId };
+
+            SqlParameter parametro = null;
+            if (objPhone.TypeId > 0)
+            {
+                parametro = new SqlParameter("@id", SqlDbType.Int);
+                parametro.Value = objPhone;
+            }
+
+
+            objPhone.TypeId = this.ExecuteScalar<int>("InsertPhones", parametros: getParams(nombres, tipos, valores), parametro: parametro);
+
+
+        }
+
+
+        public void DeletePhones(int id)
+        {
+            this.executeNonQuery("DeletePhones", parametro: getParam("@id", SqlDbType.Int, id));
+        }
+
+
+
+
+
+
+        //Mi Decimo metodo
+        public PhoneType PhoneType(int Id)
+        {
+            return this.GetSingleBase<PhoneType>("GetPhoneType",
+                parametro: getParam("@Id", System.Data.SqlDbType.Int, Id));
+            //Y es todo
+        }
+
+        public List<PhoneType> phoneType(int Type)
+        {
+            SqlParameter parametro = null;
+            if (Type > 0)
+            {
+                parametro = new SqlParameter("@TypeId ", SqlDbType.Int);
+                parametro.Value = Type;
+            }
+
+
+            return this.GetListBase<PhoneType>("GetPhoneType", parametro: parametro);
+        }
+
+        public void InsertPhoneType(PhoneType objPhoneType)
+        {
+            string[] nombres = { "@Type", "@Enabled" };
+            SqlDbType[] tipos = { SqlDbType.VarChar, SqlDbType.Bit };
+            object[] valores = { objPhoneType.Type, objPhoneType.Enabled };
+
+            SqlParameter parametro = null;
+            if (objPhoneType.Id > 0)
+            {
+                parametro = new SqlParameter("@id", SqlDbType.Int);
+                parametro.Value = objPhoneType;
+            }
+
+
+            objPhoneType.Id = this.ExecuteScalar<int>("InsertPhoneType", parametros: getParams(nombres, tipos, valores), parametro: parametro);
+
+
+        }
+
+
+        public void DeletePhonesType(int id)
+        {
+            this.executeNonQuery("DeletePhoneType", parametro: getParam("@id", SqlDbType.Int, id));
+        }
+        //CODIGO DE FER
 
     }
 }
