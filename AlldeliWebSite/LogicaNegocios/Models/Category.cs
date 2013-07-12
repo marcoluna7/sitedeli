@@ -11,6 +11,8 @@ namespace Alldeli.BusinessLogic.Models
 {
     using System;
     using System.Collections.Generic;
+    using Alldeli.BusinessLogic.DbLayer;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Category
     {
@@ -27,6 +29,8 @@ namespace Alldeli.BusinessLogic.Models
         public bool Enabled { get; set; }
         public int OrderBy { get; set; }
         public System.DateTime CreatedDate { get; set; }
+
+        [Required]        
         public string CreatedUser { get; set; }
     
         public virtual Partner Partner { get; set; }
@@ -40,6 +44,14 @@ namespace Alldeli.BusinessLogic.Models
                 listaCategorias = acceso.GetCategories(parentId, partnerId);
             }
             return listaCategorias;
+        }
+
+        public static void CreatedCategory(Category objCategory)
+        {
+            using (AccessDataBase acceso = new AccessDataBase())
+            {
+                acceso.InsertCategory(objCategory);
+            }
         }
 
 

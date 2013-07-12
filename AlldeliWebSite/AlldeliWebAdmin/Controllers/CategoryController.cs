@@ -37,16 +37,28 @@ namespace AlldeliWebAdmin.Controllers
         // POST: /Category/Create
 
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        //public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Category objCategory)
         {
             try
             {
                 // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    Console.WriteLine(objCategory.Name);
+                    Console.WriteLine("Hola mundo");
+                    Category.CreatedCategory(objCategory);
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    
+                    return View();
+                }
             }
-            catch
+            catch(Exception er)
             {
+                Console.WriteLine(er.Message);
                 return View();
             }
         }
